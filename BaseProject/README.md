@@ -46,19 +46,21 @@ hoặc
 react-native run-ios
 ```
 
-## Một số hình ảnh của project
+### Một số hình ảnh của project
 
-Explain how to run the automated tests for this system
+đang cập nhật...
 
 ### Các thư viện hỗ trợ
 
 Trong project đã được cài sẵn 1 số thư viện sau: 
 
-1. native-base - (Trang chủ)[https://nativebase.io/]
-2. react-navigatoin - (Trang chủ)[https://reactnavigation.org/]
-3. sqlite-storage - (Trang chủ)[https://github.com/andpor/react-native-sqlite-storage]
+1. native-base - [https://nativebase.io/](Trang chủ)
+2. react-navigatoin - [https://reactnavigation.org/](Trang chủ)
+3. sqlite-storage - [https://github.com/andpor/react-native-sqlite-storage](Trang chủ)
 
 ### Kiến trúc thư mục
+
+đang cập nhật...
 
 ## Tác giả
 
