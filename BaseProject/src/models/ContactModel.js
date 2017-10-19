@@ -8,7 +8,7 @@ export default class ContactModel extends Model{
     }
 
     getAll(callback) {
-        this.db.execute('SELECT * FROM users', [], (tx, results) => {
+        this.db.execute('SELECT * FROM users', [], (results) => {
 			var datas = [];
 			for (let i = 0; i < results.rows.length; i++) {
 				datas.push(results.rows.item(i));
@@ -19,17 +19,17 @@ export default class ContactModel extends Model{
 
     insert(params, callback) {
         let query = 'INSERT INTO users VALUES(?,?,?)';
-        this.db.execute(query, params, (tx, results) => callback(results));
+        this.db.execute(query, params, (results) => callback(results));
     }
 
     update(params, callback) {
         let query = 'UPDATE users SET (username = ?, age = ?, address = ?) WHERE id = ?';
-        this.db.execute(query, params, (tx, results) => callback(results));
+        this.db.execute(query, params, (results) => callback(results));
     }
 
     delete(params, callback) {
         let query = 'DELETE FROM users WHERE id = ?';
-        this.db.execute(query, params, (tx, results) => callback(results));
+        this.db.execute(query, params, (results) => callback(results));
     }
 
 }
