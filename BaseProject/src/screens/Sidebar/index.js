@@ -8,8 +8,8 @@ const routes = [
 		caption: "Home",
 	},
 	{
-		route: "Home",
-		caption: "Menu 1",
+		route: "Demo",
+		caption: "DEMO",
 	},
 	{
 		route: "Home",

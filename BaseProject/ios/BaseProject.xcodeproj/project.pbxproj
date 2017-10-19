@@ -48,6 +48,9 @@
 		810695EFED8C46E5B05ADBCC /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95651816F06B4A9FB43D580C /* rubicon-icon-font.ttf */; };
 		E5537C32870B4015952894DD /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFEF6437A074FCF934F5ABC /* SimpleLineIcons.ttf */; };
 		2E30588D752B4A4797DF9C23 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE7F6FBDB56149CCA5DCC74D /* Zocial.ttf */; };
+		C0BD6532B9624D3E8749F7C3 /* libSQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91ADE3989AFA46BB802E09F4 /* libSQLite.a */; };
+		B8461AB0EC584464972AEEBA /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC42A506EE047AB8321241A /* libsqlite3.0.tbd */; };
+		A97E4AB6BBE448989865A8F5 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = C1639F00AE064162864EB436 /* OFL.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +290,10 @@
 		95651816F06B4A9FB43D580C /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		4DFEF6437A074FCF934F5ABC /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		EE7F6FBDB56149CCA5DCC74D /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5A2DF64DE8BC46B9B747A642 /* SQLite.xcodeproj */ = {isa = PBXFileReference; name = "SQLite.xcodeproj"; path = "../node_modules/react-native-sqlite-storage/src/ios/SQLite.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		91ADE3989AFA46BB802E09F4 /* libSQLite.a */ = {isa = PBXFileReference; name = "libSQLite.a"; path = "libSQLite.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		7AC42A506EE047AB8321241A /* libsqlite3.0.tbd */ = {isa = PBXFileReference; name = "libsqlite3.0.tbd"; path = "usr/lib/libsqlite3.0.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		C1639F00AE064162864EB436 /* OFL.txt */ = {isa = PBXFileReference; name = "OFL.txt"; path = "../node_modules/native-base/Fonts/OFL.txt"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +322,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				C0BD6532B9624D3E8749F7C3 /* libSQLite.a in Frameworks */,
+				B8461AB0EC584464972AEEBA /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +492,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				5A2DF64DE8BC46B9B747A642 /* SQLite.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -504,6 +514,7 @@
 				00E356EF1AD99517003FC87E /* BaseProjectTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				F545B12FE5CE46E2A9395984 /* Resources */,
+				98921D6E76B84F3391002CFC /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -544,10 +555,20 @@
 				95651816F06B4A9FB43D580C /* rubicon-icon-font.ttf */,
 				4DFEF6437A074FCF934F5ABC /* SimpleLineIcons.ttf */,
 				EE7F6FBDB56149CCA5DCC74D /* Zocial.ttf */,
+				C1639F00AE064162864EB436 /* OFL.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 			path = "";
+		};
+		98921D6E76B84F3391002CFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AC42A506EE047AB8321241A /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -930,6 +951,7 @@
 				810695EFED8C46E5B05ADBCC /* rubicon-icon-font.ttf in Resources */,
 				E5537C32870B4015952894DD /* SimpleLineIcons.ttf in Resources */,
 				2E30588D752B4A4797DF9C23 /* Zocial.ttf in Resources */,
+				A97E4AB6BBE448989865A8F5 /* OFL.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1061,6 +1083,10 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaseProject.app/BaseProject";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1078,6 +1104,10 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaseProject.app/BaseProject";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Release;
 		};
@@ -1139,6 +1169,10 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1165,6 +1199,10 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Release;
 		};
@@ -1186,6 +1224,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaseProject-tvOS.app/BaseProject-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1207,6 +1249,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaseProject-tvOS.app/BaseProject-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Release;
 		};

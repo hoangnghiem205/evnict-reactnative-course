@@ -6,10 +6,12 @@ import Home from "./container/HomeContainer";
 import Login from "./container/LoginContainer";
 import Detail from "./container/DetailContainer";
 import Sidebar from "./container/SidebarContainer";
+import Demo from "./container/DemoContainer";
 
 const Drawer = DrawerNavigator(
 	{
 		Home: { screen: Home },
+		Demo: { screen: Demo },
 	},
 	{
 		initialRouteName: "Home",
