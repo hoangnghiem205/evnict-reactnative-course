@@ -54,9 +54,9 @@ react-native run-ios
 
 Trong project đã được cài sẵn 1 số thư viện sau: 
 
-1. native-base - [https://nativebase.io/](Trang chủ)
-2. react-navigatoin - [https://reactnavigation.org/](Trang chủ)
-3. sqlite-storage - [https://github.com/andpor/react-native-sqlite-storage](Trang chủ)
+1. native-base - [https://nativebase.io/] (Trang chủ)
+2. react-navigatoin - [https://reactnavigation.org/] (Trang chủ)
+3. sqlite-storage - [https://github.com/andpor/react-native-sqlite-storage] (Trang chủ)
 
 ### Kiến trúc thư mục
 
