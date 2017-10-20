@@ -30,13 +30,13 @@ class Detail extends React.Component<Props, State> {
                     </Left>
 
                     <Body style={{ flex: 3 }}>
-                        <Title>{param ? param.contact.item.username : "Detail"}</Title>
+                        <Title>{param ? param.contact.item.name : "Detail"}</Title>
                     </Body>
 
                     <Right />
                 </Header>
                 <Content>
-                    <Text>{param.contact.item.address}</Text>
+                    <Text>{param.contact.item.phonenumber}</Text>
                 </Content>
             </Container>
         );

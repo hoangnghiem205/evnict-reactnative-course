@@ -2,6 +2,9 @@
 import * as React from "react";
 import Home from "../../screens/Home";
 import ContactModel from "../../models/ContactModel";
+
+
+
 export interface Props {
 	navigation: any,
 }

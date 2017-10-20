@@ -47,7 +47,8 @@ class Home extends React.Component<Props, State> {
                                     this.props.navigation.navigate("Detail", {
                                         contact: { item }
                                     })}>
-                                <Text>{item.username}</Text>
+                                <Text>{item.name}</Text>
+                                <Text>{item.phonenumber}</Text>
                             </ListItem>
                         ))}
                     </List>

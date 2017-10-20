@@ -8,7 +8,15 @@ export interface Props {
 }
 export interface State { }
 class Login extends React.Component<Props, State> {
-    
+
+    constructor(props){
+        super(props);
+        this.state = {
+            username: "",
+            password: ""
+        }
+    }
+
     render() {
         return (
             <Container style={styles.container}>
@@ -21,14 +29,14 @@ class Login extends React.Component<Props, State> {
                     <Form>
                         <Item floatingLabel>
                             <Label>Username</Label>
-                            <Input />
+                            <Input onChangeText={(text)=>this.setState({username: text})} />
                         </Item>
                         <Item floatingLabel last>
                             <Label>Password</Label>
-                            <Input />
+                            <Input onChangeText={(text)=>this.setState({password: text})}  />
                         </Item>
                     </Form>
-                    <Button style={styles.mt} block onPress={() => this.props.onLogin()}>
+                    <Button style={styles.mt} block onPress={() => this.props.onLogin(this.state.username, this.state.password)}>
                         <Text>Login</Text>
                     </Button>
 

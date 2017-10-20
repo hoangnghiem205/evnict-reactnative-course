@@ -8,7 +8,7 @@ export default class ContactModel extends Model{
     }
 
     getAll(callback) {
-        this.db.execute('SELECT * FROM users', [], (results) => {
+        this.db.execute('SELECT * FROM Contacts', [], (results) => {
 			var datas = [];
 			for (let i = 0; i < results.rows.length; i++) {
 				datas.push(results.rows.item(i));
