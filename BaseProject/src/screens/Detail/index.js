@@ -36,7 +36,7 @@ class Detail extends React.Component<Props, State> {
                     <Right />
                 </Header>
                 <Content>
-                    <Text>{param.contact.item.phonenumber}</Text>
+                    <Text>{param.contact.item.address}</Text>
                 </Content>
             </Container>
         );
