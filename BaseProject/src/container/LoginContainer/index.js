@@ -3,6 +3,9 @@ import * as React from "react";
 import Login from "../../screens/Login";
 import { Item, Input, Icon, Toast, Form } from "native-base";
 
+
+var parseString = require('react-native-xml2js').parseString;
+
 export interface Props {
     navigation: any,
 }
@@ -15,8 +18,9 @@ export default class LoginContainer extends React.Component<Props, State> {
     constructor(props) {
         super(props);
         this.userModel = new UserModel();
-        // this.demoGET();
+        this.demoGET();
         this.demoPOST();
+        this.demoXML();
     }
 
     demoGET() {
@@ -59,6 +63,30 @@ export default class LoginContainer extends React.Component<Props, State> {
                 console.log("POST DEMO Error", error);
             }
             );
+    }
+
+    demoXML(){
+        fetch(
+            "https://randomuser.me/api/?format=xml", {
+                method: "GET",
+                headers: {
+                    "Accept": "application/xml",
+                    "Content-type": "application/xml"
+                },
+            }
+        ).then((response) => {
+            console.log("GET DEMO XML", response._bodyInit);
+
+            parseString(response._bodyInit, function (err, result) {
+                console.log(" parseString GET DEMO XML", result);
+            });
+
+
+        }).catch((error) => {
+            console.log("GET DEMO XML", error);
+        }
+            );
+
     }
 
     login(usename, password) {
