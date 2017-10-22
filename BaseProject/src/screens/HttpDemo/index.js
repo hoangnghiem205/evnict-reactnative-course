@@ -7,7 +7,11 @@ export interface Props {
     onRequest: Function
 }
 export interface State { }
-class Demo extends React.Component<Props, State> {
+class HttpDemo extends React.Component<Props, State> {
+    constructor(props){
+        super(props);
+        console.log("HttpDemo:constructor", props);
+    }
 
     render() {
         return (
@@ -35,10 +39,8 @@ class Demo extends React.Component<Props, State> {
 
                 </Content>
             </Container>
-
-
         );
     }
 }
 
-export default Demo;
+export default HttpDemo;

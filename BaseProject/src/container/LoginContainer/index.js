@@ -18,9 +18,11 @@ export default class LoginContainer extends React.Component<Props, State> {
     constructor(props) {
         super(props);
         this.userModel = new UserModel();
-        this.demoGET();
-        this.demoPOST();
-        this.demoXML();
+        // this.demoGET();
+        // this.demoPOST();
+        // this.demoXML();
+        return this.fetchJSONAsync();
+        
     }
 
     demoGET() {
@@ -65,7 +67,7 @@ export default class LoginContainer extends React.Component<Props, State> {
             );
     }
 
-    demoXML(){
+    demoXML() {
         fetch(
             "https://randomuser.me/api/?format=xml", {
                 method: "GET",
@@ -89,33 +91,53 @@ export default class LoginContainer extends React.Component<Props, State> {
 
     }
 
-    login(usename, password) {
-        console.log("[LoginContainer]", usename, password);
-        this.userModel.saveUserInfo(usename, password);
-        this.props.navigation.navigate("Home");
-        //Lay user name & pass
-        // so sanh db
-        // if 
+    async funtionName(){
+        await cau_lenh;
+    }
 
-        //else 
-        // Toast.show({
-        //     text: "Enter Valid Username & password!",
-        //     duration: 2000,
-        //     position: "top",
-        //     textStyle: { textAlign: "center" },
-        // });
+    async fetchJSONAsync(url) {
+        let response = await fetch(
+            "https://jsonplacehdasdaasolder.typicode.com/posts?userId=1dasdas", {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-type": "application/json"
+                },
+            }
+        );
+        let body = await response.json();
+        return body;
     }
 
 
-    upload() {
 
-    }
+login(usename, password) {
+    console.log("[LoginContainer]", usename, password);
+    this.userModel.saveUserInfo(usename, password);
+    this.props.navigation.navigate("Home");
+    //Lay user name & pass
+    // so sanh db
+    // if 
 
-    getData() {
+    //else 
+    // Toast.show({
+    //     text: "Enter Valid Username & password!",
+    //     duration: 2000,
+    //     position: "top",
+    //     textStyle: { textAlign: "center" },
+    // });
+}
 
-    }
 
-    render() {
-        return <Login navigation={this.props.navigation} onLogin={(username, password) => this.login(username, password)} />;
-    }
+upload() {
+
+}
+
+getData() {
+
+}
+
+render() {
+    return <Login navigation={this.props.navigation} onLogin={(username, password) => this.login(username, password)} />;
+}
 }

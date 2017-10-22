@@ -7,6 +7,7 @@ import Login from "./container/LoginContainer";
 import Detail from "./container/DetailContainer";
 import Sidebar from "./container/SidebarContainer";
 import Demo from "./container/DemoContainer";
+import HttpDemoContainer from "./container/HttpDemoContainer";
 
 const Drawer = DrawerNavigator(
 	{
@@ -21,13 +22,13 @@ const Drawer = DrawerNavigator(
 
 const App = StackNavigator(
 	{
-        
+        HttpDemoContainer: {screen: HttpDemoContainer},
 		Login: { screen: Login },
 		Detail: { screen: Detail },
 		Drawer: { screen: Drawer },
 	},
 	{
-		initialRouteName: "Login",
+		initialRouteName: "HttpDemoContainer",
 		headerMode: "none",
 	}
 );
