@@ -9,6 +9,7 @@ import Sidebar from "./container/SidebarContainer";
 import Demo from "./container/DemoContainer";
 import HttpDemoContainer from "./container/HttpDemoContainer";
 import MapContainer from "./container/MapContainer";
+import GeolocationContainer from "./container/GeolocationContainer";
 
 const Drawer = DrawerNavigator(
 	{
@@ -23,6 +24,7 @@ const Drawer = DrawerNavigator(
 
 const App = StackNavigator(
 	{
+		GeolocationContainer: {screen:GeolocationContainer},
 		HttpDemoContainer: {screen: HttpDemoContainer},
 		MapContainer: {screen: MapContainer},
 		Login: { screen: Login },
@@ -30,7 +32,7 @@ const App = StackNavigator(
 		Drawer: { screen: Drawer },
 	},
 	{
-		initialRouteName: "MapContainer",
+		initialRouteName: "GeolocationContainer",
 		headerMode: "none",
 	}
 );
