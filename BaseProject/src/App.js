@@ -8,6 +8,7 @@ import Detail from "./container/DetailContainer";
 import Sidebar from "./container/SidebarContainer";
 import Demo from "./container/DemoContainer";
 import HttpDemoContainer from "./container/HttpDemoContainer";
+import MapContainer from "./container/MapContainer";
 
 const Drawer = DrawerNavigator(
 	{
@@ -22,13 +23,14 @@ const Drawer = DrawerNavigator(
 
 const App = StackNavigator(
 	{
-        HttpDemoContainer: {screen: HttpDemoContainer},
+		HttpDemoContainer: {screen: HttpDemoContainer},
+		MapContainer: {screen: MapContainer},
 		Login: { screen: Login },
 		Detail: { screen: Detail },
 		Drawer: { screen: Drawer },
 	},
 	{
-		initialRouteName: "HttpDemoContainer",
+		initialRouteName: "MapContainer",
 		headerMode: "none",
 	}
 );
