@@ -1,30 +1,29 @@
 export default class Http {
-    async get(url, headers) {
-        console.log('AAaaaget ', url);
-        return await fetch(url, {
+    get(url, headers) {
+        return fetch(url, {
             method: 'GET',
             headers: headers
         })
     }
 
-    async post(url, headers, body) {
-        return await fetch(url, {
+    post(url, headers, body) {
+        return fetch(url, {
             method: 'POST',
             headers: headers,
             body: body,
         })
     }
 
-    async put(url, headers, body) {
-        return await fetch(url, {
+    put(url, headers, body) {
+        return fetch(url, {
             method: 'PUT',
             headers: headers,
             body: body,
         })
     }
 
-    async delete(url, headers, body) {
-        return await fetch(url, {
+    delete(url, headers, body) {
+        return fetch(url, {
             method: 'DELETE',
             headers: headers,
             body: body,

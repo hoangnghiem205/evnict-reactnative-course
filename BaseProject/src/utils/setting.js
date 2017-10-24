@@ -1,4 +1,4 @@
 export default {
     SERVER_NAME: "http://",
-    API_URL: "http://api/"
+    API_URL: "https://facebook.github.io/react-native/movies.json"
 }

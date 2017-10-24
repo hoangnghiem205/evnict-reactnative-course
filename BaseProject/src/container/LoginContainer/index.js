@@ -18,32 +18,10 @@ export default class LoginContainer extends React.Component<Props, State> {
         }
     }
 
-
-    async componentWillMount() {
+    componentWillMount() {
         console.log("Will mount");
         let userService = new UserService();
-        let data = await userService.getAll();
-        this.setState({data: data});
-    }
-
-    getMovie() {
-        fetch('http://jsonplaceholder.typicode.com/users/1')
-        .then((response) => response.json())
-        .then((responseJson) => {
-            console.log(responseJson);
-            this.setState({data: responseJson});
-        })
-    }
-    async getMoviesFromApi() {
-        try {
-            let response = await fetch('http://jsonplaceholder.typicode.com/users/1');
-            let responseJson = await response.json();
-            console.log('function ' ,responseJson);
-            this.setState({data: responseJson});
-            return responseJson;
-        } catch(error) {
-            console.error(error);
-        }
+        userService.getAll(data => this.setState({data: data}));
     }
 
     login() {
@@ -58,14 +36,6 @@ export default class LoginContainer extends React.Component<Props, State> {
         //     position: "top",
         //     textStyle: { textAlign: "center" },
         // });
-    }
-
-    upload() {
-
-    }
-
-    getData() {
-
     }
 
 	render() {

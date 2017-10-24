@@ -1,14 +1,30 @@
 import Service from './Service';
-import MyHttp from '../utils/http';
+import Setting from '../utils/setting';
+
 export default class UserService extends Service {
 
     constructor() {
         super();
     }
 
-    async getAll() {
-        let response = await new MyHttp().get('http://jsonplaceholder.typicode.com/users/1', {});
-        return response.json();
+    getAll(callback) {
+        this.http.get(Setting.API_URL, this.header)
+        .then( response => response.json() )
+        .then( responseJson => callback(responseJson) );
+    }
+
+    update(callback) {
+        // this.http.post('url://asdfasdf', this.header, {username: 'sa', password: 'sa'})
+        // .then( response => response.json() )
+        // .then( responseJson => callback(responseJson) );
+    }
+
+    delete(callback) {
+        
+    }
+
+    insert(callback) {
+
     }
 
 }
