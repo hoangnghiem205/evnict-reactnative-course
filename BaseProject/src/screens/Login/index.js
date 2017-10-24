@@ -4,6 +4,7 @@ import { Container, Header, Body, Title, Button, Text, Content, Form, Item, Inpu
 import styles from "./styles";
 export interface Props {
     navigation: any,
+    data: any,
     onLogin: Function,
 }
 export interface State { }
@@ -32,6 +33,7 @@ class Login extends React.Component<Props, State> {
                         <Text>Login</Text>
                     </Button>
 
+                    <Text>{this.props.data}</Text>
                 </Content>
             </Container>
 
