@@ -15,25 +15,43 @@ class Geolocation extends React.Component<Props, State> {
         this.state = {
             initialPosition: 'unknown',
             lastPosition: 'unknown',
-            error: null,
+            error: null
         };
     }
 
     componentDidMount() {
-        // navigator.geolocation.getCurrentPosition(
-        //     (position) => {
-        //         var initialPosition = JSON.stringify(position);
-        //         this.setState({ initialPosition });
-        //     },
-        //     (error) => alert(error.message),
-        //     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-        // );
-        this.watchID = navigator.geolocation.watchPosition((position) => {
-            var lastPosition = JSON.stringify(position);
-            this.setState({
-                lastPosition: lastPosition
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                var jsonPosition = JSON.stringify(position);
+                this.setState({
+                    initialPosition: jsonPosition
+                },
+            (error)=>{
+                console.log(error);
+            }, {
+                enableHighAccuracy: true,
+                timeut: 30 * 1000,
+                maximumAge: 1000
             });
-        });
+            }
+        );
+
+        this.watchID = navigator.geolocation.watchPosition(
+            (position) => {
+                var jsonPosition = JSON.stringify(position);
+                this.setState({
+                    lastPosition: jsonPosition
+                },
+            (error)=>{
+                console.log(error);
+            }, {
+                enableHighAccuracy: true,
+                timeut: 30 * 1000,
+                maximumAge: 1000
+            });
+            }
+        );
+
     }
 
     componentWillUnmount() {
@@ -52,12 +70,14 @@ class Geolocation extends React.Component<Props, State> {
                     <View>
                         <Text>
                             <Text style={styles.title}>Initial position: </Text>
-                            {this.state.initialPosition}
+                            <Text> {this.state.initialPosition} </Text>
+                            <Text style={styles.title}>initialPosition: </Text>
+                            <Text> {this.state.lastPosition} </Text>
                         </Text>
-                        <Text>
+                        {/* <Text>
                             <Text style={styles.title}>Current position: </Text>
                             <Text style={styles.title}>latitude : {this.state.lastPosition}</Text>
-                        </Text>
+                        </Text> */}
                     </View>
                 </Content>
             </Container>

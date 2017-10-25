@@ -2,7 +2,7 @@
 import React from "react";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 import { Root } from "native-base";
-import Home from "./container/HomeContainer";
+import HomeContainer from "./container/HomeContainer";
 import Login from "./container/LoginContainer";
 import Detail from "./container/DetailContainer";
 import Sidebar from "./container/SidebarContainer";
@@ -13,11 +13,11 @@ import GeolocationContainer from "./container/GeolocationContainer";
 
 const Drawer = DrawerNavigator(
 	{
-		Home: { screen: Home },
+		HomeContainer: { screen: HomeContainer },
 		Demo: { screen: Demo },
 	},
 	{
-		initialRouteName: "Home",
+		initialRouteName: "HomeContainer",
 		contentComponent: props => <Sidebar {...props} />,
 	}
 );
@@ -30,9 +30,10 @@ const App = StackNavigator(
 		Login: { screen: Login },
 		Detail: { screen: Detail },
 		Drawer: { screen: Drawer },
+		HomeContainer: { screen: HomeContainer }
 	},
 	{
-		initialRouteName: "GeolocationContainer",
+		initialRouteName: "HomeContainer",
 		headerMode: "none",
 	}
 );

@@ -13,9 +13,17 @@
 #import <React/RCTRootView.h>
 
 @implementation AppDelegate
+@synthesize oneSignal = _oneSignal;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  self.oneSignal = [[RCTOneSignal alloc] initWithLaunchOptions:launchOptions
+       appId:@"c6baf1fb-a34e-4e55-b0d0-4f70d1c8945a"];
+  
+//  [OneSignal setLogLevel:ONE_S_LL_VERBOSE visualLevel:ONE_S_LL_WARN];
+  
+//  OneSignal.inFocusDisplayType = OSNotificationDisplayTypeInAppAlert;
+  
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
