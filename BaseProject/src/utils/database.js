@@ -19,12 +19,12 @@ export default class Database {
 	}
 
 	execute(query, params, callback) {
-		this.db.executeSql(query, params, callback, this.errorCB);
+		this.db.executeSql(query, params, callback);
 	}
 
 	executeTrans(query, params, callback) {
 		this.db.transaction((tx) => {
-			tx.executeSql(query, params, callback, this.errorCB);
+			tx.executeSql(query, params, callback);
 		});
 	}
 

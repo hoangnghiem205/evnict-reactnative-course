@@ -6,9 +6,12 @@ import { Item, Input, Icon, Toast, Form } from "native-base";
 import UserService from '../../services/UserService';
 
 export interface Props {
-	navigation: any,
+    navigation: any,
 }
-export interface State {}
+
+import UserModel from "../../models/UserModel";
+
+export interface State { }
 export default class LoginContainer extends React.Component<Props, State> {
 
     constructor(props) {
