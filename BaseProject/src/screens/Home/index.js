@@ -107,7 +107,7 @@ class Home extends React.Component<Props, State> {
             <Container>
                 <Header >
                     <Body>
-                        <Title>OneSignal Demo</Title>
+                        <Title>Image Demo</Title>
                     </Body>
                 </Header>
                 <Content contentContainerStyle={{ flex: 1 }} style={{ padding: 10 }}>
