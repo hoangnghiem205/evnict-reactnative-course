@@ -1,9 +1,20 @@
 import * as React from "react";
 import {
-    Container, Header, Content, Input, Label, Body, Title, Button, Text,
-    Picker, Form, Item as FormItem
+    Container, Header, Content, Input, Label, Body, Title, Button,
+    Picker, Form, Item as FormItem, Grid, Col, CardItem
 } from 'native-base';
-import OneSignal from 'react-native-onesignal';
+
+import {
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    PixelRatio,
+    TouchableOpacity,
+    Image,
+} from 'react-native';
+
+import ImagePicker from 'react-native-image-picker';
 
 
 import styles from "./styles";
@@ -21,58 +32,75 @@ class Home extends React.Component<Props, State> {
         this.state = {
             selected1: "key1"
         };
-
-        // Setting enableVibrate
-        OneSignal.enableVibrate(true);
-
-
-
-        // Setting enableSound
-        OneSignal.enableSound(true);
-
-
-        // Example, always display notification in shade.
-        OneSignal.inFocusDisplaying(2);
-    }   
-
-
-    componentWillMount() {
-        // nhận được khi có notify đến app
-        OneSignal.addEventListener('received', this.onReceived); 
-        // nhận được khi người dùng ấn vào notify và app được mở ra
-        OneSignal.addEventListener('opened', this.onOpened);
-        // nhận được khi app đăng ký thành công với OneSignal
-        OneSignal.addEventListener('registered', this.onRegistered);
-        // nhận thông tin device
-        OneSignal.addEventListener('ids', this.onIds);
     }
 
-    componentWillUnmount() {
-        OneSignal.removeEventListener('received', this.onReceived);
-        OneSignal.removeEventListener('opened', this.onOpened);
-        OneSignal.removeEventListener('registered', this.onRegistered);
-        OneSignal.removeEventListener('ids', this.onIds);
+    selectPhotoTapped() {
+        const options = {
+            quality: 1.0,
+            maxWidth: 500,
+            maxHeight: 500,
+            storageOptions: {
+                skipBackup: true
+            }
+        };
+
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+
+            if (response.didCancel) {
+                console.log('User cancelled photo picker');
+            }
+            else if (response.error) {
+                console.log('ImagePicker Error: ', response.error);
+            }
+            else if (response.customButton) {
+                console.log('User tapped custom button: ', response.customButton);
+            }
+            else {
+                let source = { uri: response.uri };
+
+                // You can also display the image using data:
+                // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+                this.setState({
+                    avatarSource: source
+                });
+            }
+        });
     }
 
-    onReceived(notification) {
-        console.log("Notification received: ", notification);
+    onUploadImage() {
+        let source = this.state.avatarSource;
+        let formdata = new FormData();
+        let photo = {
+            // uri: source.uri
+        };
+        formdata.append("uploads[]", photo);
+        this.upoad(formdata)
+            .then((success) => {
+                console.log("onUploadImage success", success);
+            }
+            ).catch((error) => {
+                console.log("onUploadImage error", error);
+            });
     }
 
-    onOpened(openResult) {
-        console.log('Message: ', openResult.notification.payload.body);
-        console.log('Data: ', openResult.notification.payload.additionalData);
-        console.log('isActive: ', openResult.notification.isAppInFocus);
-        console.log('openResult: ', openResult);
+    upoad(formdata) {
+        return fetch('https://translate.google.com.vn/', {
+            method: 'POST',
+            body: formdata
+        });
+        // fetch('http://facebook.github.io/react-native/movies.json')
+        // .then((response) => response.json())
+        // .then((responseJson) => {
+        //   //works fine in simulator
+        //   this.setState({title: responseJson.title})
+        // })
+        // .catch((error) => {
+        //   //hits this everytime on the actual device
+        //   console.error(error);
+        // });
     }
-
-    onRegistered(notifData) {
-        console.log("Device had been registered for push notifications!", notifData);
-    }
-
-    onIds(device) {
-        console.log('Device info: ', device);
-    }
-
 
     render() {
         return (
@@ -82,8 +110,16 @@ class Home extends React.Component<Props, State> {
                         <Title>OneSignal Demo</Title>
                     </Body>
                 </Header>
-                <Content>
-
+                <Content contentContainerStyle={{ flex: 1 }} style={{ padding: 10 }}>
+                    <Grid style={{ alignItems: 'center' }}>
+                        <Col>
+                            <CardItem cardBody>
+                                <Image source={this.state.avatarSource} style={{ height: 200, width: null, flex: 1, marginBottom: 10 }} />
+                            </CardItem>
+                            <Button style={{ marginBottom: 20 }} block primary onPress={this.selectPhotoTapped.bind(this)}><Text> Choose Image </Text></Button>
+                            <Button block danger onPress={() => this.onUploadImage()}><Text> Upload Image </Text></Button>
+                        </Col>
+                    </Grid>
                 </Content>
             </Container>
         );

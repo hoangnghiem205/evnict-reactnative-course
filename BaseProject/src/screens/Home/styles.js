@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, PixelRatio } from "react-native";
 
 const styles = StyleSheet.create({
 	container: {
@@ -16,5 +16,16 @@ const styles = StyleSheet.create({
 	mt: {
 		marginTop: 18,
 	},
+	avatarContainer: {
+		borderColor: '#9B9B9B',
+		borderWidth: 1 / PixelRatio.get(),
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	avatar: {
+		width: 250,
+		height: 350
+	}
+
 });
 export default styles;
