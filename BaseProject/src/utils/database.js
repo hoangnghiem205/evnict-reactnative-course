@@ -1,17 +1,16 @@
 var SQLite = require('react-native-sqlite-storage');
-const create_table_query = "create table users (id integer primary key autoincrement,username varchar(500), age integer, address varchar(500))";
-const insert_query = "insert into users(username, age, address) values('hoangnm', 12, 'hanoi')"
+
+let instance = null;
 export default class Database {
 
 	constructor(DB_NAME) {
-		this.db = this.open(DB_NAME);
-		// this.initDB();
-	}
+		if (!instance) {
+			console.log("[Database:instance] open connect database");
+			this.db = this.open(DB_NAME);
+			instance = this;
+		}
 
-	initDB() {
-		this.db.executeSql(create_table_query, [], 
-			() => console.log('ok'), 
-			(err) => console.log('err ', err));
+		return instance;	
 	}
 
 	open(DB_NAME) {
@@ -29,8 +28,7 @@ export default class Database {
 	}
 
 	errorCB(err) {
-		console.error("SQL Error: ", err);
-		
+		console.error("SQL Error: " + err);
 	}
 
 	successCB() {
